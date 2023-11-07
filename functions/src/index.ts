@@ -9,9 +9,12 @@
 
 import {onRequest} from "firebase-functions/v2/https";
 import * as logger from "firebase-functions/logger";
+import {setGlobalOptions} from "firebase-functions/v2/options";
 
 // Start writing functions
 // https://firebase.google.com/docs/functions/typescript
+
+setGlobalOptions({maxInstances: 5});
 
 export const helloWorld = onRequest((request, response) => {
   logger.info("Hello logs!", {structuredData: true});
